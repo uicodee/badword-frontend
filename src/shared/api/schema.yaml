@@ -1,0 +1,240 @@
+openapi: 3.0.0
+paths:
+  /word:
+    post:
+      operationId: WordController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWordDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+      tags:
+        - word
+    get:
+      operationId: WordController_findAll
+      parameters:
+        - name: page
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Word'
+      tags:
+        - word
+  /word/count:
+    get:
+      operationId: WordController_getWordPages
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WordPageCountDto'
+      tags:
+        - word
+  /word/json:
+    get:
+      operationId: WordController_getJsonFile
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - word
+  /word/find:
+    get:
+      operationId: WordController_findOneByWord
+      parameters:
+        - name: word
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+      tags:
+        - word
+  /word/{id}:
+    get:
+      operationId: WordController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+      tags:
+        - word
+    patch:
+      operationId: WordController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWordStatusDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - word
+    delete:
+      operationId: WordController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - word
+  /user:
+    post:
+      operationId: UserController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - user
+  /user/{id}:
+    patch:
+      operationId: UserController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - user
+    delete:
+      operationId: UserController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - user
+info:
+  title: Badword API
+  description: The badword API
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    CreateWordDto:
+      type: object
+      properties:
+        word:
+          type: string
+      required:
+        - word
+    Word:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        word:
+          type: string
+        isChecked:
+          type: boolean
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - word
+        - isChecked
+    WordPageCountDto:
+      type: object
+      properties:
+        pages:
+          type: number
+      required:
+        - pages
+    UpdateWordStatusDto:
+      type: object
+      properties:
+        isChecked:
+          type: boolean
+      required:
+        - isChecked
+    CreateUserDto:
+      type: object
+      properties: {}
+    UpdateUserDto:
+      type: object
+      properties: {}
