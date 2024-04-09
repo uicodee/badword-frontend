@@ -34,14 +34,14 @@ export const getMeUserGetMeGet = (
       
       
       return createInstance<User>(
-      {url: `http://localhost:15400/user/get-me`, method: 'GET', signal
+      {url: `https://api.badword.uz/user/get-me`, method: 'GET', signal
     },
       options);
     }
   
 
 export const getGetMeUserGetMeGetQueryKey = () => {
-    return [`http://localhost:15400/user/get-me`] as const;
+    return [`https://api.badword.uz/user/get-me`] as const;
     }
 
     

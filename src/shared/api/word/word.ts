@@ -44,14 +44,14 @@ export const getAllWordsWordJsonGet = (
       
       
       return createInstance<AppDtoWordWord[]>(
-      {url: `http://localhost:15400/word/json`, method: 'GET', signal
+      {url: `https://api.badword.uz/word/json`, method: 'GET', signal
     },
       options);
     }
   
 
 export const getGetAllWordsWordJsonGetQueryKey = () => {
-    return [`http://localhost:15400/word/json`] as const;
+    return [`https://api.badword.uz/word/json`] as const;
     }
 
     
@@ -106,7 +106,7 @@ export const getWordsWordAllGet = (
       
       
       return createInstance<PaginatedWord>(
-      {url: `http://localhost:15400/word/all`, method: 'GET',
+      {url: `https://api.badword.uz/word/all`, method: 'GET',
         params, signal
     },
       options);
@@ -114,7 +114,7 @@ export const getWordsWordAllGet = (
   
 
 export const getGetWordsWordAllGetQueryKey = (params?: GetWordsWordAllGetParams,) => {
-    return [`http://localhost:15400/word/all`, ...(params ? [params]: [])] as const;
+    return [`https://api.badword.uz/word/all`, ...(params ? [params]: [])] as const;
     }
 
     
@@ -169,14 +169,14 @@ export const getWordWordWordGet = (
       
       
       return createInstance<AppDtoWordWord>(
-      {url: `http://localhost:15400/word/${word}`, method: 'GET', signal
+      {url: `https://api.badword.uz/word/${word}`, method: 'GET', signal
     },
       options);
     }
   
 
 export const getGetWordWordWordGetQueryKey = (word: string,) => {
-    return [`http://localhost:15400/word/${word}`] as const;
+    return [`https://api.badword.uz/word/${word}`] as const;
     }
 
     
@@ -230,7 +230,7 @@ export const addWordWordNewPost = (
       
       
       return createInstance<AppDtoWordWord>(
-      {url: `http://localhost:15400/word/new`, method: 'POST',
+      {url: `https://api.badword.uz/word/new`, method: 'POST',
       headers: {'Content-Type': 'application/json', },
       data: appApiSchemsWordWord
     },
@@ -283,7 +283,7 @@ export const setCheckedWordSetCheckedPut = (
       
       
       return createInstance<AppDtoWordWord>(
-      {url: `http://localhost:15400/word/set-checked`, method: 'PUT',
+      {url: `https://api.badword.uz/word/set-checked`, method: 'PUT',
       headers: {'Content-Type': 'application/json', },
       data: updateWord
     },
@@ -336,7 +336,7 @@ export const deleteWordWordDeleteDelete = (
       
       
       return createInstance<DeleteWordWordDeleteDelete200>(
-      {url: `http://localhost:15400/word/delete`, method: 'DELETE',
+      {url: `https://api.badword.uz/word/delete`, method: 'DELETE',
         params
     },
       options);

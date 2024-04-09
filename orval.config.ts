@@ -13,7 +13,7 @@ module.exports = {
             },
             schemas: "./src/shared/api/model",
             client: "react-query",
-            baseUrl: "http://localhost:15400/",
+            baseUrl: "https://api.badword.uz/",
         },
     },
 };

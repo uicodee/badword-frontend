@@ -48,7 +48,7 @@ if(bodyLoginUserLoginPost.client_secret !== undefined) {
  }
 
       return createInstance<Token>(
-      {url: `http://localhost:15400/login`, method: 'POST',
+      {url: `https://api.badword.uz/login`, method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded', },
        data: formUrlEncoded
     },
