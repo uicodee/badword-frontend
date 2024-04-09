@@ -1,19 +1,20 @@
-import { makeAutoObservable } from "mobx";
+import {makeAutoObservable, runInAction} from "mobx";
 
 class WordStore {
-  page = 1;
-  totalPages: number = 0;
-  constructor() {
-    makeAutoObservable(this);
-  }
+    page = 1;
+    totalPages: number = 0;
 
-  setPage = (page: number) => {
-    this.page = page;
-  };
+    constructor() {
+        makeAutoObservable(this);
+    }
 
-  setTotalPages = (totalPages: number) => {
-    this.totalPages = totalPages;
-  };
+    setPage = (page: number) => {
+        runInAction(() => this.page = page)
+    };
+
+    setTotalPages = (totalPages: number) => {
+        runInAction(() => this.totalPages = totalPages)
+    };
 }
 
 export const wordStore = new WordStore();
