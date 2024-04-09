@@ -2,6 +2,7 @@ import {RouteObject} from "react-router-dom";
 import {PageLayout} from "@/shared/ui";
 import {lazy} from "react";
 import {PermissionProvider} from "@/shared/providers";
+import {DisclaimerProvider} from "@/shared/providers/disclaimer-provider.tsx";
 
 
 const LoginPage = lazy(() =>
@@ -30,15 +31,24 @@ const InternalServerErrorPage = lazy(() =>
         default: module.InternalServerErrorPage,
     })),
 );
+const DisclaimerPage = lazy(() =>
+    import("@/pages/disclaimer-page").then((module) => ({
+        default: module.DisclaimerPage,
+    })),
+);
 
 export const paths: RouteObject[] = [
     {
         path: "/",
-        element: <PageLayout/>,
+        element: <DisclaimerProvider><PageLayout/></DisclaimerProvider>,
         children: [
             {
                 path: "login",
                 element: <LoginPage/>,
+            },
+            {
+                path: "disclaimer",
+                element: <DisclaimerPage/>
             },
             {
                 path: "/",
