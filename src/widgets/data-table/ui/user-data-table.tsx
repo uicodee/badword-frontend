@@ -7,9 +7,9 @@ import {useGetWordsWordAllGet} from "@/shared/api/word/word.ts";
 import {filterTableStore} from "@/features/filter-table/model/store.ts";
 
 export const UserDataTable: FC = observer(() => {
-    const {data: words} = useGetWordsWordAllGet({
+    const {data: words, isLoading} = useGetWordsWordAllGet({
         page: wordStore.page,
-        limit: 10,
+        limit: 8,
         type: filterTableStore.filterType
     }, {query: {queryKey: ["words", wordStore.page, filterTableStore.filterType]}})
     useEffect(() => {
@@ -24,7 +24,7 @@ export const UserDataTable: FC = observer(() => {
         return `${formattedDate} ${formattedTime}`;
     }
     return (
-        <DataTableCard>
+        <DataTableCard isLoading={isLoading}>
             <Table>
                 <TableHeader className="bg-accent">
                     <TableRow>

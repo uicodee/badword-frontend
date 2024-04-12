@@ -1,8 +1,13 @@
 import {FC} from "react";
-import {Input} from "@/shared/ui";
+import {CommandDialog, CommandEmpty, CommandInput, CommandList} from "@/shared/ui";
 
 export const Search: FC = () => {
     return (
-        <Input placeholder="Qidiruv"/>
+        <CommandDialog open={false}>
+            <CommandInput placeholder="Qidirgan so'zingizni kiriting"/>
+            <CommandList>
+                <CommandEmpty>Hechnima topilmadi</CommandEmpty>
+            </CommandList>
+        </CommandDialog>
     );
 };

@@ -38,7 +38,7 @@ export const CreateWordButton: FC = observer(() => {
             <DialogTrigger asChild>
                 <Button
                     size="sm"
-                    className="h-8 gap-1"
+                    className="h-9 gap-1"
                     onClick={() => createWordStore.setIsOpen(true)}
                 >
                     <PlusCircle className="h-3.5 w-3.5"/>
